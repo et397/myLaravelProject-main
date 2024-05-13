@@ -1,0 +1,347 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "ef117e32-a12f-4d79-b17a-e1c9a1f6f91a",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "\u767b\u5165\u5f8c\u8fd4\u56de\u4ee4\u724c",
+            "item": [
+                {
+                    "name": "POST api\/user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"kbeatty@example.com\",\"password\":\"']zPcQ\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Post \u90e8\u843d\u683c",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u986f\u793a\u6240\u6709\u6587\u7ae0\n\u80fd\u81ea\u8a02\u6bcf\u9801\u986f\u793a\u7684\u7b46\u6578\n\u521d\u59cb\u6bcf\u980110\u7b46\u7684\u65b9\u5f0f\u986f\u793a\n\u80fd\u589e\u52a0\u689d\u4ef6\u67e5\u8a62\n\u80fd\u81ea\u8a02\u6b04\u4f4d\u964d\u51aa\u6216\u5347\u51aa\u6392\u5e8f\n\u521d\u59cb\u70baid\u964d\u51aa\u6392\u5e8f",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/post",
+                            "query": [
+                                {
+                                    "key": "filter[]",
+                                    "value": "",
+                                    "description": "\u689d\u4ef6\u67e5\u8a62",
+                                    "disabled": true
+                                },
+                                {
+                                    "key": "orderby",
+                                    "value": "atque",
+                                    "description": "\u6b04\u4f4d\u6392\u5e8f",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "presage",
+                                    "value": "10",
+                                    "description": "\u6bcf\u9801\u986f\u793a\u7684\u7b46\u6578",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page",
+                                    "value": "1",
+                                    "description": "\u9801\u6578",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/post?filter[]=&orderby=atque&presage=10&page=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "null",
+                            "name": "No Content"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":1,\"title\":\"Hello World\",\"content\":\"Hello World\"}",
+                            "name": "OK"
+                        },
+                        {
+                            "header": [],
+                            "code": 302,
+                            "body": "null",
+                            "name": "Redirect"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u56de\u50b3\u6307\u5b9a\u6587\u7ae0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/post\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/post\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u6587\u7ae0ID"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "null",
+                            "name": "No Content"
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":1,\"title\":\"Hello World\",\"content\":\"\u65e9\u4e0a\u597d\"}",
+                            "name": "OK"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u65b0\u589e\u6587\u7ae0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/post",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/post"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":17,\"title\":\"Hello World\",\"content\":\"\u65e9\u5b89\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "null",
+                            "name": "\u65b0\u589e\u5931\u6557"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u4fee\u6539\u6307\u5b9a\u5167\u5bb9",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/post\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/post\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u6587\u7ae0ID"
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":8,\"title\":\"Hello World\",\"content\":\"\u65e9\u4e0a\u597d\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "null",
+                            "name": "\u4fee\u6539\u5931\u6557"
+                        }
+                    ]
+                },
+                {
+                    "name": "\u522a\u9664\u6307\u5b9a\u6587\u7ae0",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/post\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/post\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "\u6587\u7ae0ID"
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "null",
+                            "name": "\u522a\u9664\u5931\u6557"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

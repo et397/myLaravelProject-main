@@ -1,0 +1,274 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/user:
+    post:
+      summary: ''
+      operationId: postApiUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 用戶的電子郵件地址
+                  example: kbeatty@example.com
+                password:
+                  type: string
+                  description: 用戶的密碼
+                  example: "']zPcQ"
+              required:
+                - email
+                - password
+      security: []
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/post:
+    get:
+      summary: "顯示所有文章\n能自訂每頁顯示的筆數\n初始每頁10筆的方式顯示\n能增加條件查詢\n能自訂欄位降冪或升冪排序\n初始為id降冪排序"
+      operationId: 10id
+      description: ''
+      parameters:
+        -
+          in: query
+          name: filter
+          description: 條件查詢
+          example: []
+          required: true
+          schema:
+            type: object
+            description: 條件查詢
+            example: []
+            properties: {  }
+        -
+          in: query
+          name: orderby
+          description: 欄位排序
+          example: atque
+          required: true
+          schema:
+            type: string
+            description: 欄位排序
+            example: atque
+        -
+          in: query
+          name: presage
+          description: 每頁顯示的筆數
+          example: 10
+          required: true
+          schema:
+            type: integer
+            description: 每頁顯示的筆數
+            example: 10
+        -
+          in: query
+          name: page
+          description: 頁數
+          example: 1
+          required: true
+          schema:
+            type: integer
+            description: 頁數
+            example: 1
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'Hello World'
+                  content: 'Hello World'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                    description: 文章ID
+                  title:
+                    type: string
+                    example: 'Hello World'
+                    description: 文章標題
+                  content:
+                    type: string
+                    example: 'Hello World'
+                    description: 文章內容
+        302:
+          description: Redirect
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'null'
+      tags:
+        - 'Post 部落格'
+      security: []
+    post:
+      summary: 新增文章
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 新增失敗
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'null'
+      tags:
+        - 'Post 部落格'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: ''
+                  example: 17
+                title:
+                  type: string
+                  description: 文章標題
+                  example: 'Hello World'
+                content:
+                  type: string
+                  description: 文章內容
+                  example: 早安
+              required:
+                - user_id
+                - title
+                - content
+      security: []
+  '/api/post/{id}':
+    get:
+      summary: 回傳指定文章
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  title: 'Hello World'
+                  content: 早上好
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                    description: 文章ID
+                  title:
+                    type: string
+                    example: 'Hello World'
+                    description: 文章標題
+                  content:
+                    type: string
+                    example: 早上好
+                    description: 文章內容
+      tags:
+        - 'Post 部落格'
+      security: []
+    put:
+      summary: 修改指定內容
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 修改失敗
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'null'
+      tags:
+        - 'Post 部落格'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: ''
+                  example: 8
+                title:
+                  type: string
+                  description: 文章標題
+                  example: 'Hello World'
+                content:
+                  type: string
+                  description: 文章內容
+                  example: 早上好
+              required:
+                - user_id
+                - title
+                - content
+      security: []
+    delete:
+      summary: 刪除指定文章
+      operationId: ''
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: 刪除失敗
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'null'
+      tags:
+        - 'Post 部落格'
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 文章ID
+        example: 1
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Auth
+    description: 登入後返回令牌
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'Post 部落格'
+    description: ''
